@@ -25,8 +25,8 @@ public class MqConfig {
     public ActiveMQConnectionFactory connectionFactory() {
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
         connectionFactory.setBrokerURL(brokerUrl);
-        connectionFactory.setPassword(brokerUser);
-        connectionFactory.setUserName(brokerPwd);
+        connectionFactory.setPassword(brokerPwd);
+        connectionFactory.setUserName(brokerUser);
         return connectionFactory;
     }
 
