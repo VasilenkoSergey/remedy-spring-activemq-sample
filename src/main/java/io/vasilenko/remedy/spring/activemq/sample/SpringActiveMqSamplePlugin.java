@@ -8,10 +8,14 @@ import com.bmc.thirdparty.org.slf4j.LoggerFactory;
 import io.vasilenko.remedy.spring.activemq.sample.mq.MqSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Configuration
+@ComponentScan
 public class SpringActiveMqSamplePlugin extends ARFilterAPIPlugin {
 
     private static final int INPUT_MESSAGE_VALUE_INDEX = 0;
@@ -19,9 +23,12 @@ public class SpringActiveMqSamplePlugin extends ARFilterAPIPlugin {
     private final Logger log = LoggerFactory.getLogger(SpringActiveMqSamplePlugin.class);
 
     private AnnotationConfigApplicationContext applicationContext;
+    private MqSender sender;
 
     @Autowired
-    private MqSender sender;
+    public void setSender(MqSender sender) {
+        this.sender = sender;
+    }
 
     @Override
     public void initialize(ARPluginContext context) {
