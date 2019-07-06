@@ -32,7 +32,7 @@ public class SpringActiveMqSamplePlugin extends ARFilterAPIPlugin {
 
     @Override
     public void initialize(ARPluginContext context) {
-        applicationContext = new AnnotationConfigApplicationContext(SpringActiveMqSamplePlugin.class.getPackage().getName());
+        applicationContext = new AnnotationConfigApplicationContext(SpringActiveMqSamplePlugin.class);
         applicationContext.getAutowireCapableBeanFactory().autowireBean(this);
         log.info("initialized");
     }
